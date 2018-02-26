@@ -24,5 +24,13 @@ def new():
 
     return redirect(url_for('todo'))
 
+
+@app.route('/display', methods=['POST'])
+def display():
+    _items = db.acpTimes.find()
+    items = [item for item in _items]
+    return render_template('elements.html, items = items) 
+    
+    
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
